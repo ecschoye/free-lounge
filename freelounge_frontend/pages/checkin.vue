@@ -38,7 +38,11 @@ const onDetect = async (qrString: detectedCode[]) => {
     const response = await axios.post('http://127.0.0.1:7878/QR', rawValue);
     isSubmitted.value = true;
     if (response.status === 200) {
-      result.value = "Check-in successful: " + response.data;
+      if (response.data === "Your ticket is invalid! Contact customer service") {
+        result.value = "Check-in failed: " + response.data;
+      } else {
+        result.value = "Check-in successful: " + response.data;
+      }
     } else {
       result.value = "Check-in failed: " + response.data;
     }
