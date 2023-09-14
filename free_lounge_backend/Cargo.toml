@@ -1,0 +1,12 @@
+[package]
+name = "free_lounge_backend"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+actix-cors = "0.6.4"
+actix-web = "4"
+base64 = "0.21.4"
+regex = "1.7.1"
