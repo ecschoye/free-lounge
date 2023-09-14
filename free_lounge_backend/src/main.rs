@@ -1,6 +1,6 @@
 use actix_web::{get, post, web::Json, App, HttpServer};
 use actix_cors::Cors;
-use base64::{decode};
+use base64::decode;
 use std::fs;
 
 
@@ -12,7 +12,7 @@ async fn main() -> std::io::Result<()> {
             .service(post_qr)
             .service(get_status)
     })
-    .bind(("127.0.0.1", 7878))?
+    .bind(("0.0.0.0", 7878))?
     .run()
     .await
 }
