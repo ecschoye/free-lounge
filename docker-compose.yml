@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+
+  free_lounge_backend:
+    container_name: free_lounge_backend
+    build:
+      context: ./free_lounge_backend
+      dockerfile: Dockerfile
+    ports:
+      - "7878:7878"
+    restart: on-failure
+    networks:
+      - freelounge_network
+
+  freelounge_frontend:
+    container_name: freelounge_frontend
+    build:
+      context: ./freelounge_frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - free_lounge_backend
+    restart: on-failure
+    networks:
+      - freelounge_network
+
+networks:
+  freelounge_network:
+    driver: bridge
