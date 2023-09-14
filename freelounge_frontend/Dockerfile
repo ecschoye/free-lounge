@@ -2,13 +2,22 @@ FROM node:18
 
 WORKDIR /app
 
-COPY package*.json ./
+# copy over package.json files
+COPY package.json /app/
+COPY package-lock.json /app/
 
-RUN npm install
+# install all depencies
+RUN npm ci && npm cache clean --force
 
-COPY . .
+# copy over all files to the work directory
+ADD . /app
 
+# build the project
+RUN npm run build
+
+# expose the host and port 3000 to the server
 ENV HOST 0.0.0.0
 EXPOSE 3000
 
-CMD ["npm", "run", "dev"]
+# run the build project with node
+ENTRYPOINT ["node", ".output/server/index.mjs"]
