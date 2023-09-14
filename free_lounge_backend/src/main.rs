@@ -19,6 +19,7 @@ async fn main() -> std::io::Result<()> {
 
 #[post("/QR")]
 async fn post_qr(ticket_base64: String) -> String {
+    println!("Ticket: {}", ticket_base64);
     let ticket = decode_ticket(ticket_base64);
     println!("Ticket: {}", ticket);
     
@@ -76,7 +77,7 @@ fn have_lounge_access(ticket: &String) -> bool {
         let group = parts[4];
         let lounge_privilege = parts[16];
         let service_class = parts[5];
-        group > "C" && lounge_privilege == "Y" && service_class == "Plus"
+        group < "C" && lounge_privilege == "Y" && service_class == "Plus"
     } else {
         false
     }
