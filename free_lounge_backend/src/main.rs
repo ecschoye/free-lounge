@@ -77,7 +77,7 @@ fn have_lounge_access(ticket: &String) -> bool {
         let group = parts[4];
         let lounge_privilege = parts[16];
         let service_class = parts[5];
-        group < "C" && lounge_privilege == "Y" && service_class == "Plus"
+        (group == "A" || group == "B") && lounge_privilege == "Y" && service_class == "Plus"    
     } else {
         false
     }
