@@ -462,7 +462,6 @@ dependencies = [
  "actix-cors",
  "actix-web",
  "base64",
- "regex",
 ]
 
 [[package]]
