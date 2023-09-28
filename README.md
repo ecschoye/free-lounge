@@ -1,7 +1,7 @@
 # Capture The Flag Challenge: Free Lounge
 ### Part of the Exercises in IDATT2503 - Security in Programming and Cryptography
 
-![index](https://github.com/ecschoye/free-lounge/tree/main/images/image.png)
+![index](https://github.com/ecschoye/free-lounge/blob/main/images/image.png)
 
 ## Team Members
 - Aleksander Olsvik
